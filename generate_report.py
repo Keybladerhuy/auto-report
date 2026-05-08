@@ -20,6 +20,7 @@ load_dotenv()
 
 import matplotlib
 matplotlib.use('Agg')
+import japanize_matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import matplotlib.image as mpimg
@@ -34,13 +35,17 @@ OUT    = os.path.join(ROOT, 'output', 'report_sample.pdf')
 
 # ── Japanese font detection ───────────────────────────────────────────────────
 def find_jp_font():
-    candidates = ['Yu Gothic', 'Meiryo', 'MS Gothic', 'MS UI Gothic',
-                  'Hiragino Sans', 'Noto Sans CJK JP', 'Noto Sans JP']
+    # Prefer IPAexGothic (bundled by japanize-matplotlib) — works reliably with
+    # matplotlib's PDF backend. Hiragino/Noto on macOS cause ASCII encoding errors.
+    candidates = ['IPAexGothic', 'Yu Gothic', 'Meiryo', 'MS Gothic', 'MS UI Gothic']
     for name in candidates:
-        path = fm.findfont(fm.FontProperties(family=name), fallback_to_default=False)
-        if path and 'DejaVu' not in path:
-            print(f'Japanese font found: {name}')
-            return name
+        try:
+            path = fm.findfont(fm.FontProperties(family=name), fallback_to_default=False)
+            if path and 'DejaVu' not in path:
+                print(f'Japanese font found: {name}')
+                return name
+        except ValueError:
+            continue
     print('Warning: no Japanese font found, falling back to default.')
     return 'sans-serif'
 
