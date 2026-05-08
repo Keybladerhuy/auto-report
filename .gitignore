@@ -1,5 +1,6 @@
 # Data files (download separately - see README)
-data/
+data/*
+!data/online_retail_II.xlsx
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
