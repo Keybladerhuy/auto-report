@@ -1,0 +1,408 @@
+<svg width="100%" viewBox="0 0 680 420" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Data Pipeline: Clean → Analyze → Cook</title>
+  <desc>Three factory rooms animate in sequence: data cleaning removes errors, analysis draws charts, cooking produces a final polished dataset.</desc>
+
+  <defs>
+    <style>
+      /* ── LOOP: 12s total, 3 phases of ~4s each ── */
+
+      /* Room glow borders */
+      #room1-border { animation: glowClean 12s ease infinite; }
+      #room2-border { animation: glowAnalyze 12s ease infinite; }
+      #room3-border { animation: glowCook 12s ease infinite; }
+
+      @keyframes glowClean {
+        0%,8%    { stroke: #e0e0e0; stroke-width: 1.5; }
+        10%,33%  { stroke: #0F9D58; stroke-width: 2.5; }
+        36%,100% { stroke: #e0e0e0; stroke-width: 1.5; }
+      }
+      @keyframes glowAnalyze {
+        0%,36%   { stroke: #e0e0e0; stroke-width: 1.5; }
+        38%,62%  { stroke: #1a73e8; stroke-width: 2.5; }
+        65%,100% { stroke: #e0e0e0; stroke-width: 1.5; }
+      }
+      @keyframes glowCook {
+        0%,65%   { stroke: #e0e0e0; stroke-width: 1.5; }
+        67%,90%  { stroke: #f59e0b; stroke-width: 2.5; }
+        93%,100% { stroke: #e0e0e0; stroke-width: 1.5; }
+      }
+
+      /* Room header highlight */
+      #h1 { animation: headerClean 12s ease infinite; }
+      #h2 { animation: headerAnalyze 12s ease infinite; }
+      #h3 { animation: headerCook 12s ease infinite; }
+
+      @keyframes headerClean {
+        0%,8%    { fill: #f4f4f4; }
+        10%,33%  { fill: #e6f4ea; }
+        36%,100% { fill: #f4f4f4; }
+      }
+      @keyframes headerAnalyze {
+        0%,36%   { fill: #f4f4f4; }
+        38%,62%  { fill: #e8f0fe; }
+        65%,100% { fill: #f4f4f4; }
+      }
+      @keyframes headerCook {
+        0%,65%   { fill: #f4f4f4; }
+        67%,90%  { fill: #fef9e7; }
+        93%,100% { fill: #f4f4f4; }
+      }
+
+      /* ── ROOM 1: CLEAN ── */
+      /* Dirty cells (errors) fade out */
+      .dirty { animation: dirtyFade 12s ease infinite; }
+      @keyframes dirtyFade {
+        0%,9%    { opacity: 1; }
+        20%,100% { opacity: 0; }
+      }
+      /* Clean cells fade in */
+      .clean-cell { opacity: 0; animation: cleanFade 12s ease infinite; }
+      @keyframes cleanFade {
+        0%,18%   { opacity: 0; }
+        26%,100% { opacity: 1; }
+      }
+      /* Broom sweeps across */
+      #broom { animation: broomSweep 12s ease infinite; }
+      @keyframes broomSweep {
+        0%,9%    { transform: translateX(0px);  opacity: 0; }
+        11%      { opacity: 1; }
+        25%      { transform: translateX(120px); opacity: 1; }
+        28%,100% { transform: translateX(120px); opacity: 0; }
+      }
+
+      /* ── ROOM 2: ANALYZE ── */
+      /* Bar chart bars grow up from baseline */
+      #bar1 { animation: bar1Grow 12s ease infinite; }
+      #bar2 { animation: bar2Grow 12s ease infinite; }
+      #bar3 { animation: bar3Grow 12s ease infinite; }
+      #bar4 { animation: bar4Grow 12s ease infinite; }
+
+      @keyframes bar1Grow {
+        0%,37%   { transform: scaleY(0); opacity: 0; }
+        40%,90%  { transform: scaleY(1); opacity: 1; }
+        95%,100% { transform: scaleY(0); opacity: 0; }
+      }
+      @keyframes bar2Grow {
+        0%,40%   { transform: scaleY(0); opacity: 0; }
+        44%,90%  { transform: scaleY(1); opacity: 1; }
+        95%,100% { transform: scaleY(0); opacity: 0; }
+      }
+      @keyframes bar3Grow {
+        0%,43%   { transform: scaleY(0); opacity: 0; }
+        48%,90%  { transform: scaleY(1); opacity: 1; }
+        95%,100% { transform: scaleY(0); opacity: 0; }
+      }
+      @keyframes bar4Grow {
+        0%,46%   { transform: scaleY(0); opacity: 0; }
+        52%,90%  { transform: scaleY(1); opacity: 1; }
+        95%,100% { transform: scaleY(0); opacity: 0; }
+      }
+
+      /* Trend line draws on */
+      #trendline {
+        stroke-dasharray: 160;
+        stroke-dashoffset: 160;
+        animation: drawLine 12s ease infinite;
+      }
+      @keyframes drawLine {
+        0%,50%   { stroke-dashoffset: 160; opacity: 0; }
+        52%      { opacity: 1; }
+        62%,90%  { stroke-dashoffset: 0; opacity: 1; }
+        95%,100% { stroke-dashoffset: 0; opacity: 0; }
+      }
+
+      /* ── ROOM 3: COOK ── */
+      /* Ingredients (raw blobs) fade out */
+      .ingredient { animation: ingredFade 12s ease infinite; }
+      @keyframes ingredFade {
+        0%,66%   { opacity: 1; }
+        75%,100% { opacity: 0; }
+      }
+      /* Stir spin */
+      #stirrer { animation: stir 12s linear infinite; transform-origin: 590px 258px; }
+      @keyframes stir {
+        0%,65%   { opacity: 0; transform: rotate(0deg); }
+        67%      { opacity: 1; }
+        80%      { opacity: 1; transform: rotate(360deg); }
+        82%,100% { opacity: 0; }
+      }
+      /* Final output table rows appear */
+      .output-row { opacity: 0; animation: outputAppear 12s ease infinite; }
+      .out1 { animation-delay: 0s; }
+      .out2 { animation-delay: 0.3s; }
+      .out3 { animation-delay: 0.6s; }
+      @keyframes outputAppear {
+        0%,79%   { opacity: 0; transform: translateY(4px); }
+        84%,92%  { opacity: 1; transform: translateY(0); }
+        96%,100% { opacity: 0; }
+      }
+
+      /* ── ARROWS between rooms (light up in sequence) ── */
+      #arrow1 { animation: arrowClean 12s ease infinite; }
+      #arrow2 { animation: arrowAnalyze 12s ease infinite; }
+
+      @keyframes arrowClean {
+        0%,32%   { stroke: #cccccc; fill: #cccccc; }
+        34%,38%  { stroke: #0F9D58; fill: #0F9D58; }
+        40%,100% { stroke: #cccccc; fill: #cccccc; }
+      }
+      @keyframes arrowAnalyze {
+        0%,62%   { stroke: #cccccc; fill: #cccccc; }
+        64%,68%  { stroke: #1a73e8; fill: #1a73e8; }
+        70%,100% { stroke: #cccccc; fill: #cccccc; }
+      }
+
+      /* ── STATUS LABELS ── */
+      #lbl-idle    { animation: lblShow 12s ease infinite; }
+      #lbl-clean   { opacity: 0; animation: lblClean 12s ease infinite; }
+      #lbl-analyze { opacity: 0; animation: lblAnalyze 12s ease infinite; }
+      #lbl-cook    { opacity: 0; animation: lblCook 12s ease infinite; }
+      #lbl-done    { opacity: 0; animation: lblDone 12s ease infinite; }
+
+      @keyframes lblShow {
+        0%,7%    { opacity: 1; }
+        9%,100%  { opacity: 0; }
+      }
+      @keyframes lblClean {
+        0%,8%    { opacity: 0; }
+        10%,32%  { opacity: 1; }
+        34%,100% { opacity: 0; }
+      }
+      @keyframes lblAnalyze {
+        0%,36%   { opacity: 0; }
+        38%,62%  { opacity: 1; }
+        64%,100% { opacity: 0; }
+      }
+      @keyframes lblCook {
+        0%,65%   { opacity: 0; }
+        67%,88%  { opacity: 1; }
+        90%,100% { opacity: 0; }
+      }
+      @keyframes lblDone {
+        0%,90%   { opacity: 0; }
+        93%,97%  { opacity: 1; }
+        100%     { opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <!-- White background -->
+  <rect width="680" height="420" fill="#ffffff"/>
+
+  <!-- ══════════════ TITLE ══════════════ -->
+  <text x="340" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#1a1a1a">Automated Data Pipeline</text>
+
+  <!-- ══════════════ ROOM 1: CLEAN ══════════════ -->
+  <g id="room1">
+    <rect id="room1-border" x="22" y="55" width="176" height="290" rx="10" fill="#fafafa" stroke="#e0e0e0" stroke-width="1.5"/>
+    <!-- Header -->
+    <rect id="h1" x="22" y="55" width="176" height="34" rx="10" fill="#f4f4f4"/>
+    <rect x="22" y="72" width="176" height="17" fill="#f4f4f4"/>
+    <text x="110" y="77" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#0F9D58">🧹 Clean</text>
+
+    <!-- DIRTY TABLE (errors) -->
+    <g class="dirty">
+      <!-- Header row -->
+      <rect x="34" y="100" width="152" height="18" fill="#f0f0f0"/>
+      <text x="74" y="113" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">ID</text>
+      <text x="131" y="113" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">Value</text>
+      <!-- Row 1 with error -->
+      <rect x="34" y="118" width="152" height="18" fill="#fff5f5"/>
+      <text x="74" y="131" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#dc2626">001</text>
+      <text x="131" y="131" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#dc2626">NULL ✕</text>
+      <!-- Row 2 ok -->
+      <rect x="34" y="136" width="152" height="18" fill="#fff"/>
+      <text x="74" y="149" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#333">002</text>
+      <text x="131" y="149" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#333">1,240</text>
+      <!-- Row 3 error -->
+      <rect x="34" y="154" width="152" height="18" fill="#fff5f5"/>
+      <text x="74" y="167" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#dc2626">003</text>
+      <text x="131" y="167" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#dc2626">#REF! ✕</text>
+      <!-- Row 4 ok -->
+      <rect x="34" y="172" width="152" height="18" fill="#f9f9f9"/>
+      <text x="74" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#333">004</text>
+      <text x="131" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#333">875</text>
+      <!-- Row 5 error -->
+      <rect x="34" y="190" width="152" height="18" fill="#fff5f5"/>
+      <text x="74" y="203" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#dc2626">005</text>
+      <text x="131" y="203" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#dc2626">-999 ✕</text>
+      <!-- dividers -->
+      <line x1="34" y1="118" x2="186" y2="118" stroke="#e0e0e0" stroke-width="0.5"/>
+      <line x1="34" y1="136" x2="186" y2="136" stroke="#e0e0e0" stroke-width="0.5"/>
+      <line x1="34" y1="154" x2="186" y2="154" stroke="#e0e0e0" stroke-width="0.5"/>
+      <line x1="34" y1="172" x2="186" y2="172" stroke="#e0e0e0" stroke-width="0.5"/>
+      <line x1="34" y1="190" x2="186" y2="190" stroke="#e0e0e0" stroke-width="0.5"/>
+      <line x1="110" y1="100" x2="110" y2="208" stroke="#e0e0e0" stroke-width="0.5"/>
+    </g>
+
+    <!-- BROOM sweeping -->
+    <g id="broom">
+      <rect x="34" y="100" width="18" height="110" rx="2" fill="#f59e0b" opacity="0.7"/>
+      <text x="43" y="214" text-anchor="middle" font-family="Arial, sans-serif" font-size="18">🧹</text>
+    </g>
+
+    <!-- CLEAN TABLE (appears after sweep) -->
+    <g class="clean-cell">
+      <rect x="34" y="100" width="152" height="18" fill="#e8f0e9"/>
+      <text x="74" y="113" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#166534">ID</text>
+      <text x="131" y="113" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#166534">Value</text>
+
+      <rect x="34" y="118" width="152" height="18" fill="#f0fdf4"/>
+      <text x="74" y="131" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#166534">001</text>
+      <text x="131" y="131" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#166534">1,100 ✓</text>
+
+      <rect x="34" y="136" width="152" height="18" fill="#fff"/>
+      <text x="74" y="149" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#166534">002</text>
+      <text x="131" y="149" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#166534">1,240 ✓</text>
+
+      <rect x="34" y="154" width="152" height="18" fill="#f0fdf4"/>
+      <text x="74" y="167" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#166534">003</text>
+      <text x="131" y="167" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#166534">980 ✓</text>
+
+      <rect x="34" y="172" width="152" height="18" fill="#fff"/>
+      <text x="74" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#166534">004</text>
+      <text x="131" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#166534">875 ✓</text>
+
+      <rect x="34" y="190" width="152" height="18" fill="#f0fdf4"/>
+      <text x="74" y="203" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#166534">005</text>
+      <text x="131" y="203" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#166534">1,050 ✓</text>
+
+      <line x1="34" y1="118" x2="186" y2="118" stroke="#c8d8c9" stroke-width="0.5"/>
+      <line x1="34" y1="136" x2="186" y2="136" stroke="#c8d8c9" stroke-width="0.5"/>
+      <line x1="34" y1="154" x2="186" y2="154" stroke="#c8d8c9" stroke-width="0.5"/>
+      <line x1="34" y1="172" x2="186" y2="172" stroke="#c8d8c9" stroke-width="0.5"/>
+      <line x1="34" y1="190" x2="186" y2="190" stroke="#c8d8c9" stroke-width="0.5"/>
+      <line x1="110" y1="100" x2="110" y2="208" stroke="#c8d8c9" stroke-width="0.5"/>
+    </g>
+
+    <!-- Room 1 label -->
+    <text x="110" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#888">Remove nulls &amp; errors</text>
+  </g>
+
+  <!-- ══════════════ ARROW 1 ══════════════ -->
+  <g id="arrow1">
+    <line x1="200" y1="200" x2="238" y2="200" stroke="#cccccc" stroke-width="2"/>
+    <polygon points="242,200 234,196 234,204" fill="#cccccc"/>
+  </g>
+
+  <!-- ══════════════ ROOM 2: ANALYZE ══════════════ -->
+  <g id="room2">
+    <rect id="room2-border" x="244" y="55" width="192" height="290" rx="10" fill="#fafafa" stroke="#e0e0e0" stroke-width="1.5"/>
+    <!-- Header -->
+    <rect id="h2" x="244" y="55" width="192" height="34" rx="10" fill="#f4f4f4"/>
+    <rect x="244" y="72" width="192" height="17" fill="#f4f4f4"/>
+    <text x="340" y="77" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#1a73e8">📊 Analyze</text>
+
+    <!-- Chart baseline & axis -->
+    <line x1="264" y1="260" x2="420" y2="260" stroke="#dddddd" stroke-width="1"/>
+    <line x1="264" y1="260" x2="264" y2="110" stroke="#dddddd" stroke-width="1"/>
+    <!-- Y axis ticks -->
+    <line x1="260" y1="220" x2="264" y2="220" stroke="#ccc" stroke-width="0.8"/>
+    <line x1="260" y1="180" x2="264" y2="180" stroke="#ccc" stroke-width="0.8"/>
+    <line x1="260" y1="140" x2="264" y2="140" stroke="#ccc" stroke-width="0.8"/>
+
+    <!-- Bar 1 -->
+    <rect id="bar1" x="277" y="190" width="28" height="70" rx="3" fill="#1a73e8" opacity="0.85"
+          style="transform-origin: 291px 260px; transform: scaleY(0);"/>
+    <!-- Bar 2 -->
+    <rect id="bar2" x="313" y="155" width="28" height="105" rx="3" fill="#1a73e8" opacity="0.85"
+          style="transform-origin: 327px 260px; transform: scaleY(0);"/>
+    <!-- Bar 3 -->
+    <rect id="bar3" x="349" y="175" width="28" height="85" rx="3" fill="#1a73e8" opacity="0.85"
+          style="transform-origin: 363px 260px; transform: scaleY(0);"/>
+    <!-- Bar 4 -->
+    <rect id="bar4" x="385" y="130" width="28" height="130" rx="3" fill="#1a73e8" opacity="0.85"
+          style="transform-origin: 399px 260px; transform: scaleY(0);"/>
+
+    <!-- Trend line -->
+    <polyline id="trendline" points="291,195 327,160 363,180 399,135"
+              fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- X axis labels -->
+    <text x="291" y="273" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">Q1</text>
+    <text x="327" y="273" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">Q2</text>
+    <text x="363" y="273" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">Q3</text>
+    <text x="399" y="273" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">Q4</text>
+
+    <!-- Room 2 label -->
+    <text x="340" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#888">Stats, trends &amp; patterns</text>
+  </g>
+
+  <!-- ══════════════ ARROW 2 ══════════════ -->
+  <g id="arrow2">
+    <line x1="438" y1="200" x2="476" y2="200" stroke="#cccccc" stroke-width="2"/>
+    <polygon points="480,200 472,196 472,204" fill="#cccccc"/>
+  </g>
+
+  <!-- ══════════════ ROOM 3: COOK ══════════════ -->
+  <g id="room3">
+    <rect id="room3-border" x="482" y="55" width="176" height="290" rx="10" fill="#fafafa" stroke="#e0e0e0" stroke-width="1.5"/>
+    <!-- Header -->
+    <rect id="h3" x="482" y="55" width="176" height="34" rx="10" fill="#f4f4f4"/>
+    <rect x="482" y="72" width="176" height="17" fill="#f4f4f4"/>
+    <text x="570" y="77" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#f59e0b">👨‍🍳 Cook</text>
+
+    <!-- Ingredients (raw blobs) -->
+    <g class="ingredient">
+      <circle cx="540" cy="145" r="18" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+      <text x="540" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#dc2626">CSV</text>
+      <circle cx="600" cy="145" r="18" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+      <text x="600" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#b45309">JSON</text>
+      <circle cx="540" cy="195" r="18" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+      <text x="540" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7c3aed">SQL</text>
+      <circle cx="600" cy="195" r="18" fill="#dbeafe" stroke="#1a73e8" stroke-width="1"/>
+      <text x="600" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#1a73e8">API</text>
+      <text x="570" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="18">🥣</text>
+    </g>
+
+    <!-- Stirrer spin -->
+    <text id="stirrer" font-family="Arial, sans-serif" font-size="22" x="579" y="250">🥄</text>
+
+    <!-- Output table (polished result) -->
+    <g class="output-row out1">
+      <rect x="494" y="108" width="152" height="18" fill="#e8f0e9"/>
+      <text x="534" y="121" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="700" fill="#166534">Metric</text>
+      <text x="612" y="121" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="700" fill="#166534">Result</text>
+      <line x1="494" y1="126" x2="646" y2="126" stroke="#c8d8c9" stroke-width="0.5"/>
+      <line x1="572" y1="108" x2="572" y2="212" stroke="#c8d8c9" stroke-width="0.5"/>
+    </g>
+    <g class="output-row out1">
+      <rect x="494" y="126" width="152" height="18" fill="#f0fdf4"/>
+      <text x="534" y="139" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#166534">Avg Value</text>
+      <text x="612" y="139" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#166534">1,049</text>
+      <line x1="494" y1="144" x2="646" y2="144" stroke="#c8d8c9" stroke-width="0.5"/>
+    </g>
+    <g class="output-row out2">
+      <rect x="494" y="144" width="152" height="18" fill="#fff"/>
+      <text x="534" y="157" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#166534">Growth</text>
+      <text x="612" y="157" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#166534">+18.5%</text>
+      <line x1="494" y1="162" x2="646" y2="162" stroke="#c8d8c9" stroke-width="0.5"/>
+    </g>
+    <g class="output-row out2">
+      <rect x="494" y="162" width="152" height="18" fill="#f0fdf4"/>
+      <text x="534" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#166534">Records</text>
+      <text x="612" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#166534">5 clean</text>
+      <line x1="494" y1="180" x2="646" y2="180" stroke="#c8d8c9" stroke-width="0.5"/>
+    </g>
+    <g class="output-row out3">
+      <rect x="494" y="180" width="152" height="18" fill="#fff"/>
+      <text x="534" y="193" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#166534">Trend</text>
+      <text x="612" y="193" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#166534">↑ Strong</text>
+      <line x1="494" y1="198" x2="646" y2="198" stroke="#c8d8c9" stroke-width="0.5"/>
+    </g>
+    <g class="output-row out3">
+      <rect x="494" y="198" width="152" height="14" fill="#0F9D58"/>
+      <text x="570" y="209" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="700" fill="#ffffff">✓ Report Ready</text>
+    </g>
+
+    <!-- Room 3 label -->
+    <text x="570" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#888">Aggregate &amp; format output</text>
+  </g>
+
+  <!-- ══════════════ STATUS LABELS ══════════════ -->
+  <text id="lbl-idle"    x="340" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#aaaaaa">Waiting for data...</text>
+  <text id="lbl-clean"   x="340" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#0F9D58">🧹 Cleaning — removing nulls &amp; errors...</text>
+  <text id="lbl-analyze" x="340" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#1a73e8">📊 Analyzing — computing trends...</text>
+  <text id="lbl-cook"    x="340" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#f59e0b">👨‍🍳 Cooking — aggregating output...</text>
+  <text id="lbl-done"    x="340" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#0F9D58">✅ Pipeline complete!</text>
+</svg>

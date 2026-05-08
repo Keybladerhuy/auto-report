@@ -1,28 +1,31 @@
+---
+layout: default
+title: Weekly Retail Insights — On Autopilot
+---
+
 # Weekly Retail Insights — On Autopilot
 
 ## The problem
 
-You have years of sales data sitting in spreadsheets, but no time — or budget for an analyst — to make sense of it. Most business owners glance at last month's revenue and move on. The patterns hiding in the data (which products are slipping, which customers are about to leave, which weeks quietly outperform the rest) go unnoticed.
+You have sales data, but no time to look at it. Most business owners glance at last month's revenue and move on. The stuff that actually matters (which products are slipping, which customers are going quiet, which weeks quietly outperform the rest) just gets missed.
 
-## What you get
+## How it works
 
-Every Monday morning, a report lands in your inbox. No logging in, no running anything. Just a clear, 7-page PDF covering:
+**1. Your Data, Always Up to Date**
+You connect the latest sales data, for example via Google Sheets.
 
-- **Revenue trends** — how sales are moving week over week and compared to the same period last year
-- **Top products** — the 20 items driving most of your revenue, and how their rankings shift month to month
-- **Customer segments** — who your Champions are, who's at risk of churning, and who's new and worth nurturing
+![Data input](img/1_excel_to_gsheets.svg)
 
-## How it works (in plain English)
+**2. Automatic Analysis**
+Every week, the system reads your data, analyzes it, and builds the summary report & charts — revenue trends, top products, customer behaviour. This is all automated: No one needs to touch anything.
 
-1. You share your sales data — either as a Google Sheet you already maintain, or a one-time Excel upload.
-2. Every weekend, an automated system reads the latest data, crunches the numbers, builds the charts, and emails you the finished report.
-3. That's it. No software to install, no dashboards to learn, no analyst to manage.
+![Automation pipeline](img/2_data-automation-pipeline.svg)
 
-## Why it matters
+**3. Custom Report, automatically delivered to your email or chat**
+After the weekly automatic analysis, a clean PDF containing your custom report gets generated.
+This report can be customized to your liking and can be automatically sent to your email, Teams, Slack, etc.
 
-- Make decisions backed by data, not gut feel.
-- Catch problems early — a top product slipping in rank, a key customer going quiet.
-- The kind of insight that used to require a full-time analyst, delivered automatically every week.
+![Report delivery](img/3_custom_report_delivery.svg)
 
 ## See it in action
 
@@ -30,6 +33,5 @@ Every Monday morning, a report lands in your inbox. No logging in, no running an
 
 ## Interested?
 
-This is currently a pilot. If you'd like a report built around your own data, get in touch.
-
-**Contact:** [your email or link here]
+This is currently a pilot. If you want a report built around your own data, please feel free to get in touch.
+**Contact:** nguyenandydevjp@gmail.com
