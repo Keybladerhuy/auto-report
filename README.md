@@ -1,43 +1,40 @@
-# Data Analysis & Reporting — Automated
+# Automated Retail Analytics
 
-**Automated weekly analytics reports for retail businesses**
+**Weekly data analysis reports, delivered to your inbox — no dashboards, no manual work.**
 
-→ [See the full pitch](https://keybladerhuy.github.io/auto-report/pitch)
+→ [See how it works](https://keybladerhuy.github.io/auto-report/pitch)
 
 ---
 
-## Sample Output
+## Sample Report
 
-This portfolio uses two years of retail transaction data to show what a real weekly report looks like.
+The report below was built from two years of real retail transaction data. This is what lands in a client's inbox every Monday morning.
 
-| Monthly Revenue Trend | Customer Segment Distribution |
+**[Download sample report — English (PDF)](output/report_sample_en.pdf)**  
+**[サンプルレポート — 日本語 (PDF)](output/report_sample_ja.pdf)**
+
+| Cover & KPI Summary | Customer Segments |
 |---|---|
-| ![Monthly Revenue](output/charts/monthly_revenue_yoy.png) | ![Customer Segments](output/charts/rfm_segment_distribution.png) |
-
-| Product Revenue Concentration | Month-over-Month Change |
-|---|---|
-| ![Pareto Analysis](output/charts/pareto_revenue.png) | ![MoM Change](output/charts/mom_revenue_change.png) |
-
-**[Download sample report (PDF)](output/report_sample.pdf)**
+| ![Executive Summary](img/preview_summary.png) | ![RFM Segmentation](img/preview_rfm.png) |
 
 ---
 
 ## How It Works
 
-**1. Your Data, Always Up to Date**
-You connect your sales data — a Google Sheet you already maintain, or a regular Excel file.
+**1. Connect your data**
+Share a Google Sheet or Excel file — nothing else needed.
 
-**2. Automatic Analysis**
-Every week, the system reads your (updated) data, analyzes, and builds the summaries and charts — revenue trends, top products, customer behaviour. No one needs to touch anything.
+**2. Automatic analysis, every week**
+Revenue trends, top products, customer behaviour. The system reads and analyses your updated data without anyone touching it.
 
-**3. Insights in Your Inbox**
-A personal customized reports gets sent out to your email or teams/Slack.
+**3. Report arrives Monday morning**
+A PDF with charts, plain-language commentary, and a clear action for each finding.
 
 ---
 
 ## About
 
-Senior data scientist at a global semiconductor manufacturer. Day-to-day work covers demand analysis, manufacturing forecasting, production data analysis, and operational improvement. Speciality: turning data into decisions that people without a technical background can act on.
+Senior data scientist at a global semiconductor manufacturer. Day-to-day: demand analysis, forecasting, production data analysis, operational improvement. Speciality: turning raw data into decisions that people can act on.
 
 Open to freelance data analysis and reporting engagements.
 
@@ -46,49 +43,11 @@ Open to freelance data analysis and reporting engagements.
 → [Run this yourself](QUICKSTART.md)
 
 ---
----
 
-# データ分析・レポート自動化サービス
+# データ分析・レポート自動化
 
 **毎週月曜の朝、分析レポートが自動でメールに届く。ダッシュボードも、担当者も不要。**
 
-→ [サービス紹介ページを見る](https://keybladerhuy.github.io/auto-report/pitch)
+→ [サービス紹介ページを見る](https://keybladerhuy.github.io/auto-report/pitch_ja)
 
----
-
-## 納品サンプル
-
-実際の分析結果の例です。このようなグラフとレポートをお届けします。
-
-| 月別売上の推移 | 顧客グループの分布 |
-|---|---|
-| ![月別売上](output/charts/monthly_revenue_yoy.png) | ![顧客セグメント](output/charts/rfm_segment_distribution.png) |
-
-| 商品別の売上集中度 | 前月比の売上変化 |
-|---|---|
-| ![パレート分析](output/charts/pareto_revenue.png) | ![前月比](output/charts/mom_revenue_change.png) |
-
-**[サンプルレポートをダウンロード（PDF）](output/report_sample.pdf)**
-
----
-
-## ご導入の流れ
-
-**1. データをご用意いただくだけ**
-GoogleスプレッドシートかExcelファイルをご共有ください。専門知識は不要です。
-
-**2. 自動で分析・集計**
-毎週末、システムが最新データを読み込み、売上トレンド・商品分析・顧客分析を自動で行います。誰も何も操作する必要はありません。
-
-**3. レポートがメールで届きます**
-月曜の朝、PDFがメールに届きます。売上の動向、上位20商品、顧客グループの状況がまとめてわかります。
-
----
-
-## 私について
-
-グローバル半導体メーカーにてシニアデータサイエンティストとして勤務。売上分析・需要予測・生産データ解析・業務改善を日常的に担当。「データを使って現場の意思決定を助ける」ことを専門としています。
-
-フリーランスでのデータ分析・レポート作成のご依頼を承っています。
-
-**お問い合わせ:** nguyenandydevjp@gmail.com
+**[サンプルレポートをダウンロード（PDF）](output/report_sample_ja.pdf)**
